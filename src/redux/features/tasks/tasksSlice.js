@@ -7,6 +7,6 @@ const initialState = {
 const tasksSlice = createSlice({
   name: "tasksSlice",
   initialState,
-  reducers: [],
+  reducers: {},
 });
 export default tasksSlice.reducer;
