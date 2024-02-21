@@ -62,7 +62,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
             {...register("assignedTo")}
           >
             <option value="Asif Al Mahi">Asif Al Mahi</option>
-            <option value="Mir Hussain">Mir Hussain</option>
+            <option value="Musab Al Mahi">Musab Al Mahi</option>
             <option value="Foycal Hossain">Foycal Hossain</option>
             <option value="Anisur Rahoman">Anisur Rahoman</option>
             <option value="Shafil Umami">Shafil Umami</option>
@@ -70,7 +70,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
         </div>
         <div className="flex flex-col mb-5">
           <label className="mb-2" htmlFor="title">
-            Property
+            Priority
           </label>
           <select
             className="w-full rounded-md"
