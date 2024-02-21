@@ -1,13 +1,12 @@
-import './App.css'
-import Feed from './pages/Feed'
+import "./App.css";
+import Feed from "./pages/Feed";
 
 function App() {
-
   return (
     <>
-  <Feed/>
+      <Feed />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
