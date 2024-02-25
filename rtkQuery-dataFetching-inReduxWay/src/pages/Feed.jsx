@@ -1,6 +1,9 @@
 import PostCard from "../components/layout/PostCard";
 // import { useGetPostsQuery } from "../redux/features/api/baseApi";
-import { useGetPostByIdQuery } from "../redux/features/api/baseApi";
+import {
+  useGetPostByIdQuery,
+  useSetPostMutation,
+} from "../redux/features/api/baseApi";
 import useForm from "react-hook-form";
 
 const Feed = () => {
@@ -8,13 +11,18 @@ const Feed = () => {
   // const { data: post, isLoading, isError, error } = useGetPostByIdQuery(1);
 
   //   const { data: posts, isLoading, isError, error } = useGetPostsQuery();
-  //Return an Object
+  // useQuery Return an Object
 
   const { register, handleSubmit } = useForm();
   const { isLoading, isError, data: post } = useGetPostByIdQuery(1);
 
+  // mutation return an array . ekhane prothome function ebong pore object nibe autometically
+  const [setPost, { data: postData }] = useSetPostMutation();
+
+  console.log(postData);
+
   const onSubmit = (data) => {
-    console.log(data);
+    setPost({ title: "This Is A Title", body: data.post, userId: 7965 });
   };
 
   if (isLoading) {
