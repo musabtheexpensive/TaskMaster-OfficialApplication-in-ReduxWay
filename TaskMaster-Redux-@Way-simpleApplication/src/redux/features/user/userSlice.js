@@ -1,9 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: "Musab Al Mahi",
-  email: "musab@gmail.com",
+  name: " ",
+  email: " ",
+  isLoading: true,
+  isError: false,
+  error: "",
 };
+
+export const createUser = createAsyncThunk(
+  "userSlice/createUser",
+  async () => {}
+);
 
 const userSlice = createSlice({
   name: "userSlice",

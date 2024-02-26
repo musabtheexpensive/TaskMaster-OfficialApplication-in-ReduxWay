@@ -13,6 +13,7 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@reduxjs/toolkit": "^2.2.1",
+    "firebase": "^10.8.0",
     "i": "^0.3.7",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
