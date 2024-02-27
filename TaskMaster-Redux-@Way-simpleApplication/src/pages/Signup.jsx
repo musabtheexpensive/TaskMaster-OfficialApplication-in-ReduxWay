@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react';
-import loginImage from '../assets/image/login.svg';
-import { useForm, useWatch } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from "react";
+import loginImage from "../assets/image/login.svg";
+import { useForm, useWatch } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createUser } from "../redux/features/user/userSlice";
 
 const Signup = () => {
   const { handleSubmit, register, control } = useForm();
-  const password = useWatch({ control, name: 'password' });
-  const confirmPassword = useWatch({ control, name: 'confirmPassword' });
+  const password = useWatch({ control, name: "password" });
+  const confirmPassword = useWatch({ control, name: "confirmPassword" });
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
 
-const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (
       password !== undefined &&
-      password !== '' &&
+      password !== "" &&
       confirmPassword !== undefined &&
-      confirmPassword !== '' &&
+      confirmPassword !== "" &&
       password === confirmPassword
     ) {
       setDisabled(false);
@@ -28,7 +29,13 @@ const dispatch=useDispatch();
   }, [password, confirmPassword]);
 
   const onSubmit = ({ name, email, password }) => {
-    // Email Password signup
+    dispatch(
+      createUser({
+        name,
+        email,
+        password,
+      })
+    );
     console.log(name, email, password);
   };
 
@@ -51,7 +58,7 @@ const dispatch=useDispatch();
                 type="text"
                 id="name"
                 className="w-full rounded-md"
-                {...register('name')}
+                {...register("name")}
               />
             </div>
             <div className="flex flex-col items-start">
@@ -60,7 +67,7 @@ const dispatch=useDispatch();
                 type="email"
                 id="email"
                 className="w-full rounded-md"
-                {...register('email')}
+                {...register("email")}
               />
             </div>
             <div className="flex flex-col items-start">
@@ -69,7 +76,7 @@ const dispatch=useDispatch();
                 type="password"
                 id="password"
                 className="w-full rounded-md"
-                {...register('password')}
+                {...register("password")}
               />
             </div>
             <div className="flex flex-col items-start">
@@ -78,7 +85,7 @@ const dispatch=useDispatch();
                 type="password"
                 id="confirm-password"
                 className="w-full rounded-md"
-                {...register('confirmPassword')}
+                {...register("confirmPassword")}
               />
             </div>
             <div className="!mt-8 ">
@@ -92,10 +99,10 @@ const dispatch=useDispatch();
             </div>
             <div>
               <p>
-                Already have an account?{' '}
+                Already have an account?{" "}
                 <span
                   className="text-primary hover:underline cursor-pointer"
-                  onClick={() => navigate('/login')}
+                  onClick={() => navigate("/login")}
                 >
                   Login
                 </span>
