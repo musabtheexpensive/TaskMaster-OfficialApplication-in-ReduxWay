@@ -5,9 +5,11 @@ import baseApi from "./features/api/baseApi";
 
 const store = configureStore({
   reducer: {
-    [baseApi.reducerPath]:baseApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
     tasksSlice: tasksSlice,
     userSlice: userSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(baseApi.middleware),
 });
 export default store;
