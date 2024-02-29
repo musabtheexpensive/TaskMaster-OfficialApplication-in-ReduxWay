@@ -9,7 +9,9 @@ import { useGetTasksQuery } from "../redux/features/api/baseApi";
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { data: tasks, isLoading } = useGetTasksQuery(undefined, {
-    pollingInterval: 1000,
+    pollingInterval: 2000,
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
   });
 
   const pendingTasks = tasks?.filter((item) => item.status == "pending");

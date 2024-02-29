@@ -4,9 +4,11 @@ import { useAddTaskMutation } from "../../redux/features/api/baseApi";
 
 const AddTaskModal = ({ isOpen, setIsOpen }) => {
   const { register, handleSubmit, reset } = useForm();
+
   const [addTask, { data, error }] = useAddTaskMutation();
   console.log(data);
   console.log(error);
+  
   const onCancel = () => {
     reset();
     setIsOpen(false);
@@ -18,7 +20,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Programming Hero">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Your Tasks Slice Here">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col mb-5">
           <label htmlFor="title" className="mb-2">
@@ -62,7 +64,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
             id="assignedTo"
             {...register("assignedTo")}
           >
-            <option value="Mir Hussain">Mir Hussain</option>
+            <option value="Musab Vai">Musab Vai</option>
             <option value="Mezba Abedin">Mezba Abedin</option>
             <option value="Nahid Hasan">Nahid Hasan</option>
             <option value="Mizanur Rahman">Mizanur Rahman</option>
