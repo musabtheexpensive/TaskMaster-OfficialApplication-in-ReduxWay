@@ -4,15 +4,16 @@ import TaskCard from "../components/tasks/TaskCard";
 import AddTaskModal from "../components/tasks/AddTaskModal";
 import { useState } from "react";
 import MenuDropdown from "../components/ui/MenuDropdown";
-import { useGetTasksQuery } from "../redux/features/api/baseApi";
+import { useGetTasksQuery } from "../redux/features/tasks/tasksApi";
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { data: tasks, isLoading } = useGetTasksQuery(undefined, {
-    pollingInterval: 2000,
-    refetchOnMountOrArgChange: true,
-    refetchOnReconnect: true,
-  });
+  const { data: tasks } = useGetTasksQuery();
+  //   undefined, {
+  //   pollingInterval: 2000,
+  //   refetchOnMountOrArgChange: true,
+  //   refetchOnReconnect: true,
+  // }
 
   const pendingTasks = tasks?.filter((item) => item.status == "pending");
   const runningTasks = tasks?.filter((item) => item.status == "running");
