@@ -30,7 +30,7 @@ const Feed = () => {
   }
 
   if (!isLoading && isError) {
-    return <p className="text-9xl text-zinc-300">Something went wrong....</p>;
+    return <p className="text-9xl text-zinc-300">Something went wrong.....</p>;
   }
 
   return (
